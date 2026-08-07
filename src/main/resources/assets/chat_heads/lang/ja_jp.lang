@@ -1,0 +1,13 @@
+chat_heads.config.general=一般
+chat_heads.config.detection=送信者判定
+chat_heads.config.enabled=有効
+chat_heads.config.render_position=描画位置
+chat_heads.config.render_position.tooltip=頭を送信者名の直前、またはチャット行の先頭列に描画します。
+chat_heads.config.offset_non_player_text=プレイヤー以外のメッセージも揃える
+chat_heads.config.draw_shadow=頭に影を描画
+chat_heads.config.three_dee_ness=帽子レイヤーの立体感
+chat_heads.config.sender_detection=判定モード
+chat_heads.config.handle_system_messages=システムメッセージを判定
+chat_heads.config.detect_name_aliases=名前エイリアスを自動検出
+chat_heads.config.detect_name_aliases.tooltip=EssentialsX の /realname 応答からエイリアスを学習して保存します。
+chat_heads.config.name_aliases=名前エイリアス

@@ -204,6 +204,8 @@ processResources {
 }
 
 jar {
+    from('LICENSE.md')
+
     manifest {
         def attribute_map = [:]
         if (propertyBool('is_coremod')) {

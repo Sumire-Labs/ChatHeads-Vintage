@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8.5",
+  "package": "dzwdz.chat_heads.mixin",
+  "refmap": "${mixin_refmap}",
+  "compatibilityLevel": "JAVA_8",
+  "plugin": "dzwdz.chat_heads.mixin.ChatHeadsMixinPlugin",
+  "mixins": [],
+  "client": [
+    "ChatLineMixin",
+    "GuiNewChatMixin",
+    "NormalChatListenerMixin",
+    "compat.BrigoSuggestionsListMixin",
+    "compat.SalutationAdvancedTabCompleterMixin"
+  ]
+}

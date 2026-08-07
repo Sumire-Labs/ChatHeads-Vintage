@@ -23,3 +23,7 @@ build
 # other
 eclipse
 run
+.DS_Store
+
+# 参照用のオリジナルmod
+/temp/
