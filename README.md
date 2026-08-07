@@ -6,8 +6,7 @@ are easier to distinguish.
 
 ## Requirements
 
-- Minecraft 1.12.2
-- Forge 14.23.5.2847 with [MixinBooter 11+](https://github.com/CleanroomMC/MixinBooter), or
+- [MixinBooter 11+](https://github.com/CleanroomMC/MixinBooter),
 
 ## Features
 
