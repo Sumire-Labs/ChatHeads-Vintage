@@ -6,7 +6,9 @@ package dzwdz.chat_heads;
 
 import net.minecraft.util.text.ITextComponent;
 
-/** Scoped metadata transfer from GuiNewChat#setChatLine to ChatLine constructors. */
+/**
+ * Scoped metadata transfer from GuiNewChat#setChatLine to ChatLine constructors.
+ */
 public final class LineBuildContext {
 
     private static final ThreadLocal<State> CURRENT = new ThreadLocal<State>();

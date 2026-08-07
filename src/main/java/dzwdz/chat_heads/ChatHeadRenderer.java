@@ -34,7 +34,7 @@ public final class ChatHeadRenderer {
         EntityPlayer player = getPlayer(minecraft, playerInfo.getGameProfile());
         boolean upsideDown = isUpsideDown(playerInfo.getGameProfile(), player);
         boolean showHat = shouldShowHat(minecraft, playerInfo.getGameProfile(), player);
-        float hatScale = 1.0F + (float)ChatHeadsConfig.general.threeDeeNess * 0.25F;
+        float hatScale = 1.0F + (float) ChatHeadsConfig.general.threeDeeNess * 0.25F;
 
         GlStateManager.enableTexture2D();
         GlStateManager.enableAlpha();
@@ -101,7 +101,7 @@ public final class ChatHeadRenderer {
         if ((color & 0xFC000000) == 0) {
             return 1.0F;
         }
-        return (float)(color >>> 24 & 255) / 255.0F;
+        return (float) (color >>> 24 & 255) / 255.0F;
     }
 
     private static EntityPlayer getPlayer(Minecraft minecraft, GameProfile profile) {

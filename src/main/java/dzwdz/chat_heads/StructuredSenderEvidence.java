@@ -10,7 +10,9 @@ import net.minecraft.util.text.event.ClickEvent;
 
 import javax.annotation.Nullable;
 
-/** Reads the reply command attached to vanilla and server-provided player name components. */
+/**
+ * Reads the reply command attached to vanilla and server-provided player name components.
+ */
 public final class StructuredSenderEvidence {
 
     private StructuredSenderEvidence() {

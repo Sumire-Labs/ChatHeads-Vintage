@@ -62,7 +62,7 @@ public abstract class GuiNewChatMixin {
             )
     )
     private void chatheads$restoreSenderForRefresh(CallbackInfo callbackInfo, @Local ChatLine chatLine) {
-        HeadData previous = ((ChatLineExtension)(Object)chatLine).chatheads$getHeadData();
+        HeadData previous = ((ChatLineExtension) (Object) chatLine).chatheads$getHeadData();
         chatheads$messageData = SenderResolver.resolveForRefresh(chatLine.getChatComponent(), previous);
     }
 
@@ -117,7 +117,7 @@ public abstract class GuiNewChatMixin {
             Operation<Integer> original,
             @Local ChatLine chatLine
     ) {
-        HeadData data = ((ChatLineExtension)(Object)chatLine).chatheads$getHeadData();
+        HeadData data = ((ChatLineExtension) (Object) chatLine).chatheads$getHeadData();
         int offset = ChatHeadManager.getLineOffset(data);
 
         if (ChatHeadManager.shouldRenderHead(data)) {
@@ -126,13 +126,13 @@ public abstract class GuiNewChatMixin {
                 if (split.isValid()) {
                     String prefix = split.getPrefix();
                     int prefixWidth = fontRenderer.getStringWidth(prefix);
-                    int prefixEnd = (int)x;
+                    int prefixEnd = (int) x;
 
                     if (!prefix.isEmpty()) {
                         prefixEnd = original.call(fontRenderer, prefix, x, y, color);
                     }
 
-                    ChatHeadRenderer.render(data.getPlayerInfo(), (int)x + prefixWidth, (int)y, color);
+                    ChatHeadRenderer.render(data.getPlayerInfo(), (int) x + prefixWidth, (int) y, color);
 
                     String suffix = FontRenderer.getFormatFromString(prefix) + split.getSuffix();
                     if (!suffix.isEmpty()) {
@@ -145,15 +145,15 @@ public abstract class GuiNewChatMixin {
                         );
                     }
 
-                    return Math.max(prefixEnd, (int)x + prefixWidth + ChatHeadManager.getHeadWidth());
+                    return Math.max(prefixEnd, (int) x + prefixWidth + ChatHeadManager.getHeadWidth());
                 }
 
                 // Invalid metadata must not let the head overlap the text.
-                ChatHeadRenderer.render(data.getPlayerInfo(), (int)x, (int)y, color);
+                ChatHeadRenderer.render(data.getPlayerInfo(), (int) x, (int) y, color);
                 return original.call(fontRenderer, text, x + ChatHeadManager.getHeadWidth(), y, color);
             }
 
-            ChatHeadRenderer.render(data.getPlayerInfo(), (int)x, (int)y, color);
+            ChatHeadRenderer.render(data.getPlayerInfo(), (int) x, (int) y, color);
         }
 
         return original.call(fontRenderer, text, x + offset, y, color);
@@ -181,7 +181,7 @@ public abstract class GuiNewChatMixin {
             @Local ChatLine chatLine,
             @Local(index = 6) int logicalMouseX
     ) {
-        HeadData data = ((ChatLineExtension)(Object)chatLine).chatheads$getHeadData();
+        HeadData data = ((ChatLineExtension) (Object) chatLine).chatheads$getHeadData();
         int lineOffset = ChatHeadManager.getLineOffset(data);
         int headPixelX = 0;
 
@@ -245,7 +245,7 @@ public abstract class GuiNewChatMixin {
             }
 
             String text = GuiUtilRenderComponents.removeTextColorsIfConfigured(
-                    ((TextComponentString)component).getText(),
+                    ((TextComponentString) component).getText(),
                     false
             );
             int componentLength = FormattedTextLayout.plainLength(text);

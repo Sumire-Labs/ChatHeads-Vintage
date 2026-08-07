@@ -4,7 +4,9 @@
  */
 package dzwdz.chat_heads;
 
-/** Utilities for mapping visible UTF-16 positions to legacy formatted chat strings. */
+/**
+ * Utilities for mapping visible UTF-16 positions to legacy formatted chat strings.
+ */
 public final class FormattedTextLayout {
 
     private static final char FORMAT_MARKER = '\u00a7';

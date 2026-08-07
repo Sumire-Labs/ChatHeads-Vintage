@@ -15,7 +15,9 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-/** Exact profile-name lookup used only by command-suggestion adapters. */
+/**
+ * Exact profile-name lookup used only by command-suggestion adapters.
+ */
 public final class SuggestionHeadLookup {
 
     private static final SuggestionHeadLookup EMPTY = new SuggestionHeadLookup(

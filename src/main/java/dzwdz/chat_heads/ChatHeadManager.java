@@ -25,7 +25,9 @@ public final class ChatHeadManager {
         return HEAD_SIZE + PADDING + (drawShadow ? 1 : 0);
     }
 
-    /** Width removed before vanilla wraps the component. */
+    /**
+     * Width removed before vanilla wraps the component.
+     */
     public static int getTextWidthDifference(HeadData data) {
         if (!isEligible(data)) {
             return 0;
@@ -39,7 +41,9 @@ public final class ChatHeadManager {
                 && ChatHeadsConfig.general.offsetNonPlayerText ? getHeadWidth() : 0;
     }
 
-    /** Horizontal offset applied to whole wrapped lines. */
+    /**
+     * Horizontal offset applied to whole wrapped lines.
+     */
     public static int getLineOffset(HeadData data) {
         return ChatHeadsConfig.general.renderPosition == RenderPosition.BEFORE_LINE
                 ? getTextWidthDifference(data)

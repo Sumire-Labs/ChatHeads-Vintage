@@ -12,7 +12,9 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 
-/** A deterministic, case-insensitive matcher with player-name word boundaries. */
+/**
+ * A deterministic, case-insensitive matcher with player-name word boundaries.
+ */
 public final class NameMatcher<T> {
 
     private final Map<String, Candidate<T>> candidatesByNormalizedName = new LinkedHashMap<String, Candidate<T>>();

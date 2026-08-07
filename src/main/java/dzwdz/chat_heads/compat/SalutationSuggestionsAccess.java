@@ -11,7 +11,9 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.List;
 
-/** Reflection boundary that keeps Salutation an entirely optional dependency. */
+/**
+ * Reflection boundary that keeps Salutation an entirely optional dependency.
+ */
 public final class SalutationSuggestionsAccess {
 
     private static volatile boolean failed;
@@ -39,11 +41,11 @@ public final class SalutationSuggestionsAccess {
                 throw new IllegalStateException("Unexpected Salutation completion fields");
             }
             return new View(
-                    ((Number)offsetField.get(completer)).intValue(),
-                    ((Number)completionIndexField.get(completer)).intValue(),
+                    ((Number) offsetField.get(completer)).intValue(),
+                    ((Number) completionIndexField.get(completer)).intValue(),
                     box,
-                    (GuiTextField)textField,
-                    castCompletions((List<?>)completions)
+                    (GuiTextField) textField,
+                    castCompletions((List<?>) completions)
             );
         } catch (Throwable throwable) {
             fail(throwable);
@@ -106,7 +108,7 @@ public final class SalutationSuggestionsAccess {
 
     @SuppressWarnings("unchecked")
     private static List<String> castCompletions(List<?> completions) {
-        return (List<String>)(List<?>)completions;
+        return (List<String>) (List<?>) completions;
     }
 
     private static synchronized void fail(Throwable throwable) {

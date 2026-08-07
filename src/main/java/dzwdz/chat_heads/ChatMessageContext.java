@@ -8,7 +8,9 @@ import net.minecraft.util.text.ChatType;
 
 import javax.annotation.Nullable;
 
-/** Carries the ChatType through NormalChatListener into the otherwise untyped GuiNewChat API. */
+/**
+ * Carries the ChatType through NormalChatListener into the otherwise untyped GuiNewChat API.
+ */
 public final class ChatMessageContext {
 
     private static final ThreadLocal<ChatType> CURRENT_TYPE = new ThreadLocal<ChatType>();

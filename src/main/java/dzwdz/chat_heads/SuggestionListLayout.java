@@ -5,7 +5,9 @@
  */
 package dzwdz.chat_heads;
 
-/** Geometry shared by optional command-suggestion adapters. */
+/**
+ * Geometry shared by optional command-suggestion adapters.
+ */
 public final class SuggestionListLayout {
 
     public static final int SCREEN_MARGIN = 3;

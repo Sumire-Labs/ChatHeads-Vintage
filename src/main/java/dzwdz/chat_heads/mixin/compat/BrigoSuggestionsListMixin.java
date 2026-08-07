@@ -19,7 +19,9 @@ import org.spongepowered.asm.mixin.injection.ModifyArgs;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
 
-/** Optional adapter for Brigo 1.1.1's command-suggestion list. */
+/**
+ * Optional adapter for Brigo 1.1.1's command-suggestion list.
+ */
 @Pseudo
 @Mixin(targets = "dev.xhyrom.brigo.client.gui.CommandSuggestions$SuggestionsList", remap = false)
 public abstract class BrigoSuggestionsListMixin {
@@ -105,7 +107,7 @@ public abstract class BrigoSuggestionsListMixin {
         NetworkPlayerInfo playerInfo = chatheads$lookup.find(suggestion);
 
         if (playerInfo != null) {
-            ChatHeadRenderer.render(playerInfo, (int)x + 1, (int)y, color, false);
+            ChatHeadRenderer.render(playerInfo, (int) x + 1, (int) y, color, false);
         }
         args.set(1, x + SuggestionListLayout.HEAD_COLUMN_WIDTH);
     }

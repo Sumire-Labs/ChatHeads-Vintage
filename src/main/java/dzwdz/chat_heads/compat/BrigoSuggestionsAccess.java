@@ -10,7 +10,9 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.List;
 
-/** Reflection boundary that keeps Brigo an entirely optional dependency. */
+/**
+ * Reflection boundary that keeps Brigo an entirely optional dependency.
+ */
 public final class BrigoSuggestionsAccess {
 
     private static volatile boolean failed;
@@ -39,9 +41,9 @@ public final class BrigoSuggestionsAccess {
                 throw new IllegalStateException("Unexpected Brigo suggestion-list fields");
             }
 
-            int x = ((Number)boundsXGetter.invoke(bounds)).intValue();
-            int width = ((Number)boundsWidthGetter.invoke(bounds)).intValue();
-            return new View(bounds, (List<?>)suggestionsValue, x, width);
+            int x = ((Number) boundsXGetter.invoke(bounds)).intValue();
+            int width = ((Number) boundsWidthGetter.invoke(bounds)).intValue();
+            return new View(bounds, (List<?>) suggestionsValue, x, width);
         } catch (Throwable throwable) {
             fail(throwable);
             return null;
@@ -67,7 +69,7 @@ public final class BrigoSuggestionsAccess {
             }
 
             Object value = getter.invoke(suggestion);
-            return value instanceof String ? (String)value : null;
+            return value instanceof String ? (String) value : null;
         } catch (Throwable throwable) {
             fail(throwable);
             return null;

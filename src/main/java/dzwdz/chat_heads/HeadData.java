@@ -10,7 +10,9 @@ import net.minecraft.util.text.ChatType;
 
 import javax.annotation.Nullable;
 
-/** Metadata attached to both saved and visually wrapped vanilla chat lines. */
+/**
+ * Metadata attached to both saved and visually wrapped vanilla chat lines.
+ */
 public final class HeadData {
 
     public static final HeadData EMPTY = new HeadData(null, null, null, -1, true, -1);
@@ -84,7 +86,9 @@ public final class HeadData {
         return firstVisualLine;
     }
 
-    /** Visible UTF-16 index on this wrapped line, or -1 when this is not the head line. */
+    /**
+     * Visible UTF-16 index on this wrapped line, or -1 when this is not the head line.
+     */
     public int getHeadCharacterIndex() {
         return headCharacterIndex;
     }

@@ -21,7 +21,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.List;
 
-/** Optional adapter for Salutation 1.0.2's advanced tab-completion list. */
+/**
+ * Optional adapter for Salutation 1.0.2's advanced tab-completion list.
+ */
 @Pseudo
 @Mixin(targets = "speiger.src.salutation.client.gui.chat.AdvancedTabCompleter", remap = false)
 public abstract class SalutationAdvancedTabCompleterMixin {
@@ -61,8 +63,8 @@ public abstract class SalutationAdvancedTabCompleterMixin {
         int prefixWidth = input.isEmpty()
                 ? 0
                 : fontRenderer.getStringWidth(
-                        input.substring(0, Math.max(0, input.lastIndexOf(" ")) + 1)
-                );
+                input.substring(0, Math.max(0, input.lastIndexOf(" ")) + 1)
+        );
         int originalX = Math.min(prefixWidth, textField.getWidth()) + textField.x;
 
         int originalWidth = 0;

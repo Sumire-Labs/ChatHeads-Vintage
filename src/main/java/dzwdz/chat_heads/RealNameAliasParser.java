@@ -7,7 +7,9 @@ package dzwdz.chat_heads;
 
 import javax.annotation.Nullable;
 
-/** Parses the standard EssentialsX /realname response: "nickname is profileName". */
+/**
+ * Parses the standard EssentialsX /realname response: "nickname is profileName".
+ */
 public final class RealNameAliasParser {
 
     private static final String SEPARATOR = " is ";

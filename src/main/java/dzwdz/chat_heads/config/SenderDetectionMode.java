@@ -5,8 +5,12 @@
 package dzwdz.chat_heads.config;
 
 public enum SenderDetectionMode {
-    /** Only trust structured click commands attached to a player name. */
+    /**
+     * Only trust structured click commands attached to a player name.
+     */
     STRICT,
-    /** Use structured evidence first, then scan the rendered message for known names and aliases. */
+    /**
+     * Use structured evidence first, then scan the rendered message for known names and aliases.
+     */
     HEURISTIC
 }

@@ -10,7 +10,9 @@ import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
 
-/** Extracts the recipient from common reply/suggest commands attached to player names. */
+/**
+ * Extracts the recipient from common reply/suggest commands attached to player names.
+ */
 public final class TellCommandParser {
 
     private static final Set<String> SUPPORTED_COMMANDS = new HashSet<String>(Arrays.asList(
