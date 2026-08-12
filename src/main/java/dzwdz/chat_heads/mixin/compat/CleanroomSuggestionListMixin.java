@@ -101,7 +101,7 @@ public abstract class CleanroomSuggestionListMixin {
             at = @At(
                     value = "INVOKE",
                     target = "Lnet/minecraft/client/gui/FontRenderer;drawStringWithShadow(Ljava/lang/String;FFI)I",
-                    remap = false
+                    remap = true
             ),
             require = 0,
             remap = false
