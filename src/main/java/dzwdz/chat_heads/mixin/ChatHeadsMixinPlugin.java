@@ -45,6 +45,9 @@ public final class ChatHeadsMixinPlugin implements IMixinConfigPlugin {
         if (mixinClassName.endsWith(".compat.BrigoSuggestionsListMixin")) {
             return Compatibility.isModLoaded(Compatibility.BRIGO);
         }
+        if (mixinClassName.endsWith(".compat.CleanroomSuggestionListMixin")) {
+            return Compatibility.hasCleanroomCommandSuggestions();
+        }
         if (mixinClassName.endsWith(".compat.SalutationAdvancedTabCompleterMixin")) {
             return Compatibility.isModLoaded(Compatibility.SALUTATION);
         }

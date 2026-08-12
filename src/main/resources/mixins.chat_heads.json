@@ -11,6 +11,7 @@
     "GuiNewChatMixin",
     "NormalChatListenerMixin",
     "compat.BrigoSuggestionsListMixin",
+    "compat.CleanroomSuggestionListMixin",
     "compat.SalutationAdvancedTabCompleterMixin"
   ]
 }
