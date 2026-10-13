@@ -11,11 +11,11 @@ plugins {
     id 'java-library'
     id 'maven-publish'
     id 'org.jetbrains.gradle.plugin.idea-ext' version '1.4.1'
-    id 'com.gtnewhorizons.retrofuturagradle' version '2.0.2'
+    id 'com.gtnewhorizons.retrofuturagradle' version '2.0.3'
     id 'net.darkhax.curseforgegradle' version '1.2.+' apply false
     id 'com.modrinth.minotaur' version '2.+' apply false
     id 'org.jetbrains.changelog' version '2.5.0'
-    id 'com.gradleup.shadow' version '9.4.+'
+    id 'com.gradleup.shadow' version '9.6.+'
 }
 
 apply from: 'gradle/scripts/helpers.gradle'
@@ -69,6 +69,14 @@ java {
     }
 }
 
+configurations {
+    mixinAgent {
+        canBeConsumed = false
+        canBeResolved = true
+        visible = false
+    }
+}
+
 minecraft {
     mcVersion.set('1.12.2')
 
@@ -85,7 +93,6 @@ minecraft {
     // Add various JVM arguments here for runtime
     def args = ['-ea:' + group]
     if (propertyBool('use_mixins')) {
-        args << '-Dmixin.hotSwap=true'
         args << '-Dmixin.checks.interfaces=true'
         args << '-Dmixin.debug.export=true'
     }
@@ -141,6 +148,9 @@ dependencies {
             transitive = false
         }
         annotationProcessor mixin
+        add('mixinAgent', mixin) {
+            transitive = false
+        }
     }
     if (propertyBool('enable_junit_testing')) {
         testImplementation 'org.junit.jupiter:junit-jupiter:5.7.1'
@@ -150,16 +160,31 @@ dependencies {
 
 apply from: 'gradle/scripts/dependencies.gradle'
 
+if (propertyBool('use_mixins')) {
+    ['runClient', 'runServer', 'runObfClient', 'runObfServer'].each { taskName ->
+        tasks.named(taskName, JavaExec).configure { JavaExec task ->
+            task.doFirst {
+                if (task.debug) {
+                    task.jvmArgs("-javaagent:${configurations.mixinAgent.singleFile.absolutePath}")
+                }
+            }
+        }
+    }
+}
+
 // Adds Access Transformer files to tasks
 if (propertyBool('use_access_transformer')) {
-    for (def location : propertyStringList('access_transformer_locations')) {
-        def fileLocation = file("${projectDir}/src/main/resources/${location}")
-        if (fileLocation.exists()) {
-            tasks.deobfuscateMergedJarToSrg.accessTransformerFiles.from(fileLocation)
-            tasks.srgifyBinpatchedJar.accessTransformerFiles.from(fileLocation)
-        } else {
+    def atFiles = propertyStringList('access_transformer_locations').collect { location ->
+        def fileLocation = file("src/main/resources/${location}")
+        if (!fileLocation.exists()) {
             throw new GradleException("Access Transformer file [$fileLocation] does not exist!")
         }
+        return fileLocation
+    }
+
+    // Apply ATs to both Minecraft and Forge sources/runtime patched jar
+    tasks.named('applyJST').configure {
+        accessTransformerFiles.from(atFiles)
     }
 }
 

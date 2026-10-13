@@ -8,6 +8,7 @@ import net.minecraftforge.fml.common.Loader;
 
 public final class Compatibility {
 
+    public static final String BETTER_CHAT = "betterchat";
     public static final String BRIGO = "brigo";
     public static final String CLEANROOM = "cleanroom";
     public static final String CLEANROOM_SUGGESTION_LIST =

@@ -33,6 +33,7 @@ automatically makes room for each head and keeps the entries visible and clickab
 
 ## Compatibility
 
+- [Better Chat](https://www.curseforge.com/minecraft/mc-mods/better-chat) 1.4 for Minecraft 1.12.2
 - Revo Font
 - Smooth Font
 - Cleanroom 0.6.10-alpha or newer
@@ -42,6 +43,13 @@ automatically makes room for each head and keeps the entries visible and clickab
 ## Incompatible
 
 - Revo UI
+
+## Building and releases
+
+Run Gradle with JDK 25: `./gradlew build`. The toolchains are downloaded automatically; the mod still targets Java 8
+and Minecraft 1.12.2 Forge. Build scripts track ForgeDevEnv commit `396d629` and include its Mixin hot-swap and access
+transformer fixes. Debugging a run task (`./gradlew runClient --debug-jvm`, or its server/obfuscated equivalents)
+attaches the MixinBooter Java agent. Normal runs do not attach the agent.
 
 ## Credits and license
 

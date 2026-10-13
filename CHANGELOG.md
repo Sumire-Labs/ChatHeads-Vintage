@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.1.1]
+
+### Added
+
+- Optional Better Chat 1.4 adapter for player heads, wrapped-line metadata, chat refresh, and click/hover offsets.
+- Merge the latest ForgeDevEnv
+
+### Changed
+
+- Share head and text rendering between vanilla chat and Better Chat so both use the same layout and opacity handling.
+
 ## [0.1.0] - 2026-08-07
 
 ### Added

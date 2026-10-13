@@ -10,6 +10,7 @@
     "ChatLineMixin",
     "GuiNewChatMixin",
     "NormalChatListenerMixin",
+    "compat.BetterChatMixin",
     "compat.BrigoSuggestionsListMixin",
     "compat.CleanroomSuggestionListMixin",
     "compat.SalutationAdvancedTabCompleterMixin"

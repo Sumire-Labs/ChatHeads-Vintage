@@ -42,6 +42,9 @@ public final class ChatHeadsMixinPlugin implements IMixinConfigPlugin {
             return false;
         }
 
+        if (mixinClassName.endsWith(".compat.BetterChatMixin")) {
+            return Compatibility.isModLoaded(Compatibility.BETTER_CHAT);
+        }
         if (mixinClassName.endsWith(".compat.BrigoSuggestionsListMixin")) {
             return Compatibility.isModLoaded(Compatibility.BRIGO);
         }

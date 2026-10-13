@@ -9,7 +9,7 @@ import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.llamalad7.mixinextras.sugar.Local;
 import dzwdz.chat_heads.ChatHeadManager;
-import dzwdz.chat_heads.ChatHeadRenderer;
+import dzwdz.chat_heads.ChatLineRenderer;
 import dzwdz.chat_heads.ChatMessageContext;
 import dzwdz.chat_heads.FormattedTextLayout;
 import dzwdz.chat_heads.HeadData;
@@ -117,46 +117,7 @@ public abstract class GuiNewChatMixin {
             Operation<Integer> original,
             @Local ChatLine chatLine
     ) {
-        HeadData data = ((ChatLineExtension) (Object) chatLine).chatheads$getHeadData();
-        int offset = ChatHeadManager.getLineOffset(data);
-
-        if (ChatHeadManager.shouldRenderHead(data)) {
-            if (ChatHeadManager.isBeforeName()) {
-                FormattedTextLayout.Split split = FormattedTextLayout.split(text, data.getHeadCharacterIndex());
-                if (split.isValid()) {
-                    String prefix = split.getPrefix();
-                    int prefixWidth = fontRenderer.getStringWidth(prefix);
-                    int prefixEnd = (int) x;
-
-                    if (!prefix.isEmpty()) {
-                        prefixEnd = original.call(fontRenderer, prefix, x, y, color);
-                    }
-
-                    ChatHeadRenderer.render(data.getPlayerInfo(), (int) x + prefixWidth, (int) y, color);
-
-                    String suffix = FontRenderer.getFormatFromString(prefix) + split.getSuffix();
-                    if (!suffix.isEmpty()) {
-                        return original.call(
-                                fontRenderer,
-                                suffix,
-                                x + prefixWidth + ChatHeadManager.getHeadWidth(),
-                                y,
-                                color
-                        );
-                    }
-
-                    return Math.max(prefixEnd, (int) x + prefixWidth + ChatHeadManager.getHeadWidth());
-                }
-
-                // Invalid metadata must not let the head overlap the text.
-                ChatHeadRenderer.render(data.getPlayerInfo(), (int) x, (int) y, color);
-                return original.call(fontRenderer, text, x + ChatHeadManager.getHeadWidth(), y, color);
-            }
-
-            ChatHeadRenderer.render(data.getPlayerInfo(), (int) x, (int) y, color);
-        }
-
-        return original.call(fontRenderer, text, x + offset, y, color);
+        return ChatLineRenderer.draw(fontRenderer, text, x, y, color, original, chatLine);
     }
 
     @Inject(method = "getChatComponent", at = @At("HEAD"))
