@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8.5",
+  "package": "dzwdz.chad_heads_cre.mixin",
+  "refmap": "mixins.chad_heads_cre.refmap.json",
+  "compatibilityLevel": "JAVA_25",
+  "plugin": "dzwdz.chad_heads_cre.mixin.ChatHeadsMixinPlugin",
+  "mixins": [],
+  "client": [
+    "ChatLineMixin",
+    "GuiNewChatMixin",
+    "NormalChatListenerMixin",
+    "compat.BetterChatMixin",
+    "compat.CleanroomSuggestionListMixin"
+  ]
+}

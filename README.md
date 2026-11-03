@@ -1,59 +1,56 @@
-# Chat Heads Vintage
+# Chad Heads CRE
 
-Chat Heads Vintage is a client-side Minecraft 1.12.2 backport of
-[Chat Heads](https://github.com/dzwdz/chat_heads). It displays a player's skin head next to chat messages so senders
-are easier to distinguish.
+Chad Heads CRE is a client-side Minecraft 1.12.2 backport of
+[Chat Heads](https://github.com/dzwdz/chat_heads), built exclusively for
+[Cleanroom](https://download.cleanroommc.com/) 0.7.14-alpha or newer and Java 25.
+It displays a player's skin head next to chat messages so senders are easier to distinguish.
 
 ## Features
 
-- Shows each detected sender's skin head and hat layer beside their name, or in a neat column at the left of chat
+- Shows each detected sender's skin head and hat layer beside their name, or in a column at the left of chat
 - Heads fade with chat and can have an optional shadow and 3D hat effect
-- Keeps wrapped messages, hover text and clickable chat links aligned, including when timestamp or chat-format mods move
-  sender names
-- Offers accurate `STRICT` sender detection or broader `HEURISTIC` detection for server display names and nicknames
-- Lets you add nickname-to-username aliases manually or learn them automatically from EssentialsX `/realname` replies
-- Can optionally show heads in system messages and command suggestions from Cleanroom, Brigo or Salutation
-- Provides settings through Forge's Mods screen and updates chat when they are changed
+- Keeps wrapped messages, hover text and clickable chat links aligned
+- Offers `STRICT` sender detection or broader `HEURISTIC` detection for server display names and nicknames
+- Supports manual nickname aliases and learns aliases from EssentialsX `/realname` replies
+- Shows heads in system messages and Cleanroom's built-in command suggestions
+- Provides settings through the Mods screen and updates chat when they are changed
 
 Manual aliases use `nickname=MinecraftUsername`, for example `ServerNickname=RealName`.
 
-## Command suggestion compatibility
+## Command suggestions
 
-Chat Heads Vintage can show player heads in these command suggestion lists:
-
-- [Cleanroom](https://download.cleanroommc.com/) 0.6.10-alpha or newer
-- [Brigo](https://modrinth.com/mod/brigo)
-- [Salutation](https://github.com/Speiger/Salutation)
-
-When using Cleanroom 0.6.10 or later, please do not install Forge command autocomplete mods such as Brigo or Salutation alongside it.
-
-A head is shown only when a suggestion exactly matches the Minecraft username of a player who is currently online,
-including capitalization. Nicknames, aliases and incomplete command text do not receive heads. The suggestion list
-automatically makes room for each head and keeps the entries visible and clickable.
+Cleanroom's built-in suggestion list is the supported command completion interface.
+A head is shown only when a suggestion exactly matches the username of an online player,
+including capitalization. Nicknames, aliases and incomplete command text do not receive heads.
+The list makes room for heads and keeps entries visible and clickable.
 
 ## Compatibility
 
-- [Better Chat](https://www.curseforge.com/minecraft/mc-mods/better-chat) 1.4 for Minecraft 1.12.2
+- Better Chat 1.4 for Minecraft 1.12.2
 - Revo Font
 - Smooth Font
-- Cleanroom 0.6.10-alpha or newer
-- Salutation
-- Brigo
 
-## Incompatible
-
-- Revo UI
+Revo UI is incompatible because it replaces the same chat pipeline and supplies its own heads.
 
 ## Building and releases
 
-Run Gradle with JDK 25: `./gradlew build`. The toolchains are downloaded automatically; the mod still targets Java 8
-and Minecraft 1.12.2 Forge. Build scripts track ForgeDevEnv commit `396d629` and include its Mixin hot-swap and access
-transformer fixes. Debugging a run task (`./gradlew runClient --debug-jvm`, or its server/obfuscated equivalents)
-attaches the MixinBooter Java agent. Normal runs do not attach the agent.
+Run `./gradlew build` with JDK 25. The build follows the official
+[CleanroomModTemplate](https://github.com/CleanroomMC/CleanroomModTemplate)
+(commit `1863fbb4267f2318ee5b3c8e137605c8b8c92c37`), using CleanroomGradle 0.22.0,
+Conventions 1.4.0 and Gradle 9.8.1. Run `./gradlew runClient` to start the development client.
+The mod targets Java 25 and requires Cleanroom; its mod ID and configuration file name are
+`chad_heads_cre`. Existing settings can be copied from `config/chat_heads.cfg` to
+`config/chad_heads_cre.cfg` before starting the game.
+
+Versions are derived from git tags. Use `./gradlew -q printVersion` to inspect the version,
+and push a version tag such as `0.2.0` to run the release workflow.
+The workflow builds the jars, creates a GitHub Release and publishes to the configured Modrinth
+and CurseForge projects via `publishMods`. Configure `modrinth_project_id` and
+`curseforge_project_id` in `gradle.properties`, and set the matching repository secrets
+`MODRINTH_TOKEN` and `CURSEFORGE_TOKEN`.
 
 ## Credits and license
 
-The original Chat Heads mod was created by [dzwdz](https://github.com/dzwdz). This backport is maintained by
-[Sumire Labs](https://github.com/Sumire-Labs).
-
-Chat Heads Vintage is licensed under the [Mozilla Public License 2.0](LICENSE.md).
+The original Chat Heads mod was created by [dzwdz](https://github.com/dzwdz).
+This backport is maintained by [Sumire Labs](https://github.com/Sumire-Labs).
+Chad Heads CRE retains the [Mozilla Public License 2.0](LICENSE.md).

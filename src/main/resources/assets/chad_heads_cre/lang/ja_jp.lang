@@ -1,0 +1,13 @@
+chad_heads_cre.config.general=一般
+chad_heads_cre.config.detection=送信者判定
+chad_heads_cre.config.enabled=有効
+chad_heads_cre.config.render_position=描画位置
+chad_heads_cre.config.render_position.tooltip=頭を送信者名の直前、またはチャット行の先頭列に描画します。
+chad_heads_cre.config.offset_non_player_text=プレイヤー以外のメッセージも揃える
+chad_heads_cre.config.draw_shadow=頭に影を描画
+chad_heads_cre.config.three_dee_ness=帽子レイヤーの立体感
+chad_heads_cre.config.sender_detection=判定モード
+chad_heads_cre.config.handle_system_messages=システムメッセージを判定
+chad_heads_cre.config.detect_name_aliases=名前エイリアスを自動検出
+chad_heads_cre.config.detect_name_aliases.tooltip=EssentialsX の /realname 応答からエイリアスを学習して保存します。
+chad_heads_cre.config.name_aliases=名前エイリアス

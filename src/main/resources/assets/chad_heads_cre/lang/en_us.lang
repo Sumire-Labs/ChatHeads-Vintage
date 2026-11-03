@@ -1,0 +1,13 @@
+chad_heads_cre.config.general=General
+chad_heads_cre.config.detection=Sender Detection
+chad_heads_cre.config.enabled=Enabled
+chad_heads_cre.config.render_position=Render position
+chad_heads_cre.config.render_position.tooltip=Place heads before sender names or in a fixed column before chat lines.
+chad_heads_cre.config.offset_non_player_text=Offset non-player messages
+chad_heads_cre.config.draw_shadow=Draw head shadow
+chad_heads_cre.config.three_dee_ness=Hat layer 3D effect
+chad_heads_cre.config.sender_detection=Detection mode
+chad_heads_cre.config.handle_system_messages=Handle system messages
+chad_heads_cre.config.detect_name_aliases=Auto-detect name aliases
+chad_heads_cre.config.detect_name_aliases.tooltip=Learn aliases from EssentialsX /realname responses and save them.
+chad_heads_cre.config.name_aliases=Name aliases
