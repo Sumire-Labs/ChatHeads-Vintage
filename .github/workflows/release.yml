@@ -16,6 +16,9 @@ jobs:
   release:
     uses: CleanroomMC/Conventions/.github/workflows/release.yml@1.4.0
     with:
+      java-version: |-
+        8
+        25
       artifact-path: 'build/release/*.jar'
       publish-maven: false
       # Needs curseforge_project_id or modrinth_project_id in gradle.properties, and the matching token secret

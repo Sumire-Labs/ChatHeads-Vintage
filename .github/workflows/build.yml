@@ -16,4 +16,7 @@ jobs:
   build:
     uses: CleanroomMC/Conventions/.github/workflows/build.yml@1.4.0
     with:
+      java-version: |-
+        8
+        25
       release-branch: master
