@@ -37,7 +37,7 @@ Revo UI is incompatible because it replaces the same chat pipeline and supplies 
 Run `./gradlew build` with JDK 25. The build follows the official
 [CleanroomModTemplate](https://github.com/CleanroomMC/CleanroomModTemplate)
 (commit `1863fbb4267f2318ee5b3c8e137605c8b8c92c37`), using CleanroomGradle 0.22.0,
-Conventions 1.4.0 and Gradle 9.8.1. Run `./gradlew runClient` to start the development client.
+Conventions 1.4.0 and Gradle 9.8.2. Run `./gradlew runClient` to start the development client.
 The mod targets Java 25 and requires Cleanroom; its mod ID and configuration file name are
 `chad_heads_cre`. Existing settings can be copied from `config/chat_heads.cfg` to
 `config/chad_heads_cre.cfg` before starting the game.
